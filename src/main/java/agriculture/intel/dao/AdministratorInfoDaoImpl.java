@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import main.java.agriculture.intel.model.AdministratorInfo;
 /**
  * 处理administratorInfo的dao类实现
- *
+ * 应该在数据库语句中使用hql而不是sql，不然出现表 is not mapped 错误。
  *
  * @author Stephen Huge
  *
@@ -57,28 +57,29 @@ public class AdministratorInfoDaoImpl implements AdministratorInfoDao {
 	@Override
 	public int getIdByName(String name) {
 		return (int) sessionFactory.getCurrentSession()
-				.createQuery("select job_id from administrator_inf where name=?")
+//				.createQuery("select job_id from intelagri.administrator_inf where name=?")
+				.createQuery("select ai.jobId from AdministratorInfo ai where ai.name=?")
 				.setParameter(0, name).uniqueResult();
 	}
 
 	@Override
 	public String getPassword(int jobId) {
 		return (String) sessionFactory.getCurrentSession()
-				.createQuery("select password from administrator_inf where job_id=?")
+				.createQuery("select password from AdministratorInfo where jobId=?")
 				.setParameter(0, jobId).uniqueResult();
 	}
 
 	@Override
 	public String getNameById(int jobId) {
 		return (String) sessionFactory.getCurrentSession()
-				.createQuery("select name from administrator_inf where job_id=?")
+				.createQuery("select name from AdministratorInfo where jobId=?")
 				.setParameter(0, jobId).uniqueResult();
 	}
 
 	@Override
 	public boolean containAdministratorInfo(int jobId) {
 		return (boolean) sessionFactory.getCurrentSession()
-				.createQuery("select name from administrator_inf where job_id=?")
+				.createQuery("select name from AdministratorInfo where jobId=?")
 				.setParameter(0, jobId).uniqueResult().equals(null);
 	}
 
@@ -86,7 +87,7 @@ public class AdministratorInfoDaoImpl implements AdministratorInfoDao {
 	@Override
 	public List<AdministratorInfo> getAllAdministratorInfo() {
 		return (List<AdministratorInfo>) sessionFactory.getCurrentSession()
-				.createQuery("select * from administrator_inf").list();
+				.createQuery("select ai from AdministratorInfo ai").list();	// hql中不能使用select *
 	}
 	
 	
