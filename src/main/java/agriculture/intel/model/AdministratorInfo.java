@@ -35,6 +35,24 @@ public class AdministratorInfo {
 	
 	private String privilege;
 
+	
+	public AdministratorInfo() {
+		super();
+	}
+
+	public AdministratorInfo(String name, int jobId, String password, String organization, String cellPhone,
+			Date recordDate, Date expiryDate, String privilege) {
+		super();
+		this.name = name;
+		this.jobId = jobId;
+		this.password = password;
+		this.organization = organization;
+		this.cellPhone = cellPhone;
+		this.recordDate = recordDate;
+		this.expiryDate = expiryDate;
+		this.privilege = privilege;
+	}
+
 	public String getName() {
 		return name;
 	}
@@ -97,6 +115,13 @@ public class AdministratorInfo {
 
 	public void setPrivilege(String privilege) {
 		this.privilege = privilege;
+	}
+
+	@Override
+	public String toString() {
+		return "AdministratorInfo(name=" + name + ", jobId=" + jobId + ", password=" + password + ", organization="
+				+ organization + ", cellPhone=" + cellPhone + ", recordDate=" + recordDate + ", expiryDate="
+				+ expiryDate + ", privilege=" + privilege + ")";
 	}
 	
 }

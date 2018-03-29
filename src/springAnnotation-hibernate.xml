@@ -1,30 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation=
-               "http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
-        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
 
     <!-- 打开Spring的Annotation支持 -->
-    <!-- <context:annotation-config/> -->
+    <context:annotation-config/> 
     <!-- 设定Spring 去哪些包中找Annotation -->
     <context:component-scan base-package="main.java.agriculture.intel"/>
-
 
     <!-- 数据源设置 -->
     <bean id="dataSource"
           class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://localhost:3306/intelagri?useUnicode=true&amp;characterEncoding=utf-8"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/intelagri?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false"/>
         <property name="username" value="root"/>
         <property name="password" value="1234"/>
+        
     </bean>
-
+	<!-- 定义SessionFactory，并为其设置数据源dataSource -->
     <bean id="sessionFactory"
-          class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
-        <!-- 为sessionFactory注入dataSource -->
-        <property name="dataSource" ref="dataSource"/>
+          class="org.springframework.orm.hibernate4.LocalSessionFactoryBean"
+          p:dataSource-ref="dataSource">
         <!-- 常用hibernate配置 -->
         <property name="hibernateProperties">
             <props>
@@ -44,17 +47,42 @@
         </property>
     </bean>
 
-    <bean id="transactionManager"
+	<!-- 事务配置 -->
+	<bean id="transactionManager" 
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager"
+		p:sessionFactory-ref="sessionFactory"/>
+	<!-- 配置事务增强处理Bean，指定事务管理器 -->
+	<tx:advice id="txAdvice"
+		transaction-manager="transactionManager">
+		<!-- 用于配置详细的事务定义 -->
+		<tx:attributes>
+			<!-- 所有以get方法开头的方法是只读的 -->
+			<tx:method name="get*" read-only="true"/>
+			<!-- 其它方法使用默认的事务设置，指定超时时长为5秒  -->
+			<tx:method name="*" isolation="DEFAULT"
+				propagation="REQUIRED" timeout="5"/>
+		</tx:attributes>
+	</tx:advice>
+	<aop:config>
+		<aop:pointcut id="userServicePointCut"
+			expression="execution(* main.java.agriculture.intel.dao.*DaoImpl.*(..))" />
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="userServicePointCut" />
+	</aop:config>
+
+
+    <!-- <bean id="transactionManager"
           class="org.springframework.orm.hibernate4.HibernateTransactionManager">
         <property name="sessionFactory" ref="sessionFactory"></property>
     </bean>
-
-    <!-- 事务管理 、当使用spring为每个Controller注入属性时引用此bean、为其添加事务管理 -->
+	注解方式配置事物   
+    <tx:annotation-driven transaction-manager="transactionManager" /> 
+    
+    事务管理 、当使用spring为每个Controller注入属性时引用此bean、为其添加事务管理
     <bean id="transactionBese"
           class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean"
           lazy-init="true" abstract="true">
         <property name="transactionManager" ref="transactionManager"></property>
-        <!--     根据不同的操作开启不同的事务管理方式 -->
+         根据不同的操作开启不同的事务管理方式
         <property name="transactionAttributes">
             <props>
                 <prop key="add*">PROPAGATION_REQUIRED,-Exception</prop>
@@ -65,6 +93,6 @@
                 <prop key="get*">PROPAGATION_NEVER</prop>
             </props>
         </property>
-    </bean>
+    </bean>  -->
 
 </beans>

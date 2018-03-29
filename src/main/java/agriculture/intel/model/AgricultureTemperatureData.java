@@ -38,6 +38,25 @@ public class AgricultureTemperatureData {
 	
 	private Date serverTime;
 
+	public AgricultureTemperatureData() {
+		super();
+	}
+
+	public AgricultureTemperatureData(int tempDataId, String imei, String tacq, String batteryLevel, String rainfall,
+			String airTemperature, String gageHeight, String relativeHumidity, String soilMoisture, Date serverTime) {
+		super();
+		this.tempDataId = tempDataId;
+		this.imei = imei;
+		this.tacq = tacq;
+		this.batteryLevel = batteryLevel;
+		this.rainfall = rainfall;
+		this.airTemperature = airTemperature;
+		this.gageHeight = gageHeight;
+		this.relativeHumidity = relativeHumidity;
+		this.soilMoisture = soilMoisture;
+		this.serverTime = serverTime;
+	}
+
 	@Id
 	public String getImei() {
 		return imei;
@@ -117,6 +136,14 @@ public class AgricultureTemperatureData {
 
 	public void setServerTime(Date serverTime) {
 		this.serverTime = serverTime;
+	}
+
+	@Override
+	public String toString() {
+		return "AgricultureTemperatureData (tempDataId=" + tempDataId + ", imei=" + imei + ", tacq=" + tacq
+				+ ", batteryLevel=" + batteryLevel + ", rainfall=" + rainfall + ", airTemperature=" + airTemperature
+				+ ", gageHeight=" + gageHeight + ", relativeHumidity=" + relativeHumidity + ", soilMoisture="
+				+ soilMoisture + ", serverTime=" + serverTime + ")";
 	}
 	
 	

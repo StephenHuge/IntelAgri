@@ -6,6 +6,7 @@ import java.util.List;
 import main.java.agriculture.intel.model.AgricultureTemperatureData;
 
 public interface AgricultureTemperatureDataDao {
+	
 	public AgricultureTemperatureData getLastestData();
 	public AgricultureTemperatureData getDataByTime(Date tacq);
 	public List<AgricultureTemperatureData> getDataByImei(String imei);

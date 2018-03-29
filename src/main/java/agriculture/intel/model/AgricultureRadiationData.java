@@ -35,6 +35,24 @@ public class AgricultureRadiationData {
 	
 	private Date serverTime;
 
+	public AgricultureRadiationData() {
+		super();
+	}
+
+	public AgricultureRadiationData(int radiationDataId, Date tacq, String batteryLevel,
+			String currentSolarRadiationIntensity, String cumulativeSolarRadiationIntensity, String imei,
+			String meteorologicalEquipmentStatus, Date serverTime) {
+		super();
+		this.radiationDataId = radiationDataId;
+		this.tacq = tacq;
+		this.batteryLevel = batteryLevel;
+		this.currentSolarRadiationIntensity = currentSolarRadiationIntensity;
+		this.cumulativeSolarRadiationIntensity = cumulativeSolarRadiationIntensity;
+		this.imei = imei;
+		this.meteorologicalEquipmentStatus = meteorologicalEquipmentStatus;
+		this.serverTime = serverTime;
+	}
+
 	@Id
 	public int getRadiationDataId() {
 		return radiationDataId;
@@ -98,6 +116,15 @@ public class AgricultureRadiationData {
 
 	public void setServerTime(Date serverTime) {
 		this.serverTime = serverTime;
+	}
+
+	@Override
+	public String toString() {
+		return "AgricultureRadiationData (radiationDataId=" + radiationDataId + ", tacq=" + tacq + ", batteryLevel="
+				+ batteryLevel + ", currentSolarRadiationIntensity=" + currentSolarRadiationIntensity
+				+ ", cumulativeSolarRadiationIntensity=" + cumulativeSolarRadiationIntensity + ", imei=" + imei
+				+ ", meteorologicalEquipmentStatus=" + meteorologicalEquipmentStatus + ", serverTime=" + serverTime
+				+ ")";
 	}
 	
 	

@@ -34,20 +34,23 @@ public class AgricultureRadiationDataDaoImpl implements AgricultureRadiationData
 	@Override
 	public AgricultureRadiationData getLastestData() {
 		return (AgricultureRadiationData) this.sessionFactory.getCurrentSession()
-				.createQuery("select MAX(tacq) from agri_data_ radiation");
+				.createQuery("select max(ard.tacq) from AgricultureRadiationData ard")
+				.uniqueResult();
 	}
 
 	@Override
 	public AgricultureRadiationData getDataByTime(Date tacq) {
 		return (AgricultureRadiationData) this.sessionFactory.getCurrentSession()
-				.load(AgricultureRadiationData.class, tacq);
+				.createQuery("select ard from AgricultureRadiationData ard where tacq=?")
+				.setParameter(0, tacq)
+				.uniqueResult();
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<AgricultureRadiationData> getDataByImei(String imei) {
 		return (List<AgricultureRadiationData>) this.sessionFactory.getCurrentSession()
-				.createQuery("select * from agri_data_ radiation where imei=?")
+				.createQuery("select ard from AgricultureRadiationData ard where imei=?")
 				.setParameter(0, imei).list();
 	}
 
@@ -55,7 +58,7 @@ public class AgricultureRadiationDataDaoImpl implements AgricultureRadiationData
 	@Override
 	public List<AgricultureRadiationData> getDataByTimePeriod(Date startTime, Date endTime) {
 		return (List<AgricultureRadiationData>) this.sessionFactory.getCurrentSession()
-				.createQuery("select * from agri_data_ radiation where tacq>=? and tacq<=?")
+				.createQuery("select ard from AgricultureRadiationData ard where tacq>=? and tacq<=?")
 				.setParameter(0, startTime)
 				.setParameter(1, endTime).list();
 	}
@@ -64,7 +67,7 @@ public class AgricultureRadiationDataDaoImpl implements AgricultureRadiationData
 	@Override
 	public List<AgricultureRadiationData> getAllData() {
 		return (List<AgricultureRadiationData>) this.sessionFactory.getCurrentSession()
-				.createQuery("select * from agri_data_ radiation").list();
+				.createQuery("select ard from AgricultureRadiationData ard").list();
 	}
 
 }
