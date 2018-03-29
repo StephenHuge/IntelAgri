@@ -6,20 +6,13 @@ import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
-import org.hibernate.SessionFactory;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import org.hibernate.cfg.Configuration;
-import org.hibernate.service.ServiceRegistry;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import main.java.agriculture.intel.dao.AdministratorInfoDao;
-import main.java.agriculture.intel.dao.AdministratorInfoDaoImpl;
 import main.java.agriculture.intel.model.AdministratorInfo;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations="classpath:/springAnnotation-hibernate.xml")
