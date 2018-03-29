@@ -19,7 +19,7 @@ public class TestAgricultureTemperatureDataDao {
 	private AgricultureTemperatureDataDao atdDao;
 	
 	private AgricultureTemperatureData agricultureRadiationData = 
-			new AgricultureTemperatureData(10, "aa", "60%", 
+			new AgricultureTemperatureData(10, "aa", new Date(), 
 							"20", "60", "AX315SFE4", "NORMAL",  "AX315SFE4", "NORMAL", new Date());
 	@Test
 	public void testGetLastestData() {
