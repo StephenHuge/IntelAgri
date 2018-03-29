@@ -22,7 +22,7 @@ public class AgricultureTemperatureData {
 	
 	private String imei;
 	
-	private String tacq;
+	private Date tacq;
 	
 	private String batteryLevel;
 	
@@ -42,7 +42,7 @@ public class AgricultureTemperatureData {
 		super();
 	}
 
-	public AgricultureTemperatureData(int tempDataId, String imei, String tacq, String batteryLevel, String rainfall,
+	public AgricultureTemperatureData(int tempDataId, String imei, Date tacq, String batteryLevel, String rainfall,
 			String airTemperature, String gageHeight, String relativeHumidity, String soilMoisture, Date serverTime) {
 		super();
 		this.tempDataId = tempDataId;
@@ -74,11 +74,11 @@ public class AgricultureTemperatureData {
 		this.imei = imei;
 	}
 
-	public String getTacq() {
+	public Date getTacq() {
 		return tacq;
 	}
 
-	public void setTacq(String tacq) {
+	public void setTacq(Date tacq) {
 		this.tacq = tacq;
 	}
 
