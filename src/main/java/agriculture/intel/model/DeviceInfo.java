@@ -27,6 +27,17 @@ public class DeviceInfo {
 	
 	// 默认无参构造方法
 	public DeviceInfo() {}
+	
+	public DeviceInfo(int deviceId, String deviceName, String imei, String unitType, String address, Date date) {
+		super();
+		this.deviceId = deviceId;
+		this.deviceName = deviceName;
+		this.imei = imei;
+		this.unitType = unitType;
+		this.address = address;
+		this.date = date;
+	}
+
 	/*
 	 * 设备的ID
 	 */
@@ -68,6 +79,12 @@ public class DeviceInfo {
 	}
 	public void setDate(Date date) {
 		this.date = date;
+	}
+
+	@Override
+	public String toString() {
+		return "DeviceInfo (deviceId=" + deviceId + ", deviceName=" + deviceName + ", imei=" + imei + ", unitType="
+				+ unitType + ", address=" + address + ", date=" + date + ")";
 	}
 	
 	

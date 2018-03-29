@@ -58,14 +58,16 @@ public class DeviceInfoDaoImpl implements DeviceInfoDao {
 
 	@Override
 	public boolean containDeviceId(int deviceId) {
-		return (boolean) sessionFactory.getCurrentSession().createQuery("select userId from device_inf where userId=?")
+		return (boolean) sessionFactory.getCurrentSession()
+				.createQuery("select userId from DeviceInfo di where userId=?")
 				.setParameter(0, deviceId).uniqueResult().equals(null);
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<DeviceInfo> getAllDeviceInfo() {
-		return (List<DeviceInfo>) sessionFactory.getCurrentSession().createQuery("select * from device_inf").list();
+		return (List<DeviceInfo>) sessionFactory.getCurrentSession()
+				.createQuery("select di from DeviceInfo").list();
 	}
 
 }
