@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <!-- 用于关联表的实体类 -->
+		<mapping class="main.java.agriculture.intel.model.AdministratorInfo"/>
+		<mapping class="main.java.agriculture.intel.model.AgricultureRadiationData"/>
+		<mapping class="main.java.agriculture.intel.model.AgricultureTemperatureData"/>
+		<mapping class="main.java.agriculture.intel.model.DeviceInfo"/>
+		<!-- <mapping class="main.java.agriculture.intel.model.OperatingRecord"/> -->
+
+    </session-factory>
+</hibernate-configuration>
