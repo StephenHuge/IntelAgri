@@ -2,6 +2,8 @@ package main.java.agriculture.intel.model;
 
 import java.util.Date;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 /**
  * 操作记录表，由于记录用户操作暂未想到方法，后期可能去除此表，暂不做映射。
@@ -24,6 +26,7 @@ public class OperatingRecord {
 	private String notes;
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	public int getRecordId() {
 		return recordId;
 	}
