@@ -14,6 +14,7 @@ import javax.persistence.Id;
  * @date 2018年3月28日下午10:41:04
  *
  */
+@Deprecated
 public class OperatingRecord {
 	private int recordId;
 	
