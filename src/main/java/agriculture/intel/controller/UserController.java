@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import main.java.agriculture.intel.model.AdministratorInfo;
 import main.java.agriculture.intel.service.AdministratorInfoService;
 
-@Controller
+//@Controller
 public class UserController {
 	
 	private AdministratorInfoService administratorInfoService; 

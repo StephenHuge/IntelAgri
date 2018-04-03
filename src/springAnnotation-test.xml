@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+
+	    <!-- 数据源设置 -->
+    <bean id="dataSource"
+          class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/intelagri?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false"/>
+        <property name="username" value="root"/>
+        <property name="password" value="1234"/>
+        
+    </bean>
+	<!-- 定义SessionFactory，并为其设置数据源dataSource -->
+    <bean id="sessionFactory"
+          class="org.springframework.orm.hibernate4.LocalSessionFactoryBean"
+          p:dataSource-ref="dataSource">
+        <!-- 常用hibernate配置 -->
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
+                <prop key="hibernate.show_sql">true</prop>
+                <prop key="hiberante.format_sql">true</prop>
+            </props>
+        </property>
+        <!-- 加载用于生成数据库中表的hibernate配置文件。 -->
+        <property name="configLocations">
+            <list>
+                <!-- 测试用配置 -->
+                <value>
+                    classpath*:hibernate/test.cfg.xml
+                </value>
+            </list>
+        </property>
+    </bean>
+
+	<!-- 事务配置 -->
+	<bean id="transactionManager" 
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager"
+		p:sessionFactory-ref="sessionFactory"/>
+	<!-- 配置事务增强处理Bean，指定事务管理器 -->
+	<tx:advice id="txAdvice"
+		transaction-manager="transactionManager">
+		<!-- 用于配置详细的事务定义 -->
+		<tx:attributes>
+			<!-- 所有以get方法开头的方法是只读的 -->
+			<tx:method name="get*" read-only="true"/>
+			<!-- 其它方法使用默认的事务设置，指定超时时长为5秒  -->
+			<tx:method name="*" isolation="DEFAULT"
+				propagation="REQUIRED" timeout="5"/>
+		</tx:attributes>
+	</tx:advice>
+	<aop:config>
+		<aop:pointcut id="userServicePointCut"
+			expression="execution(* debug.java.agriculture.intel.*Dao.*(..))" />
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="userServicePointCut" />
+	</aop:config>
+	
+	<!-- 打开Spring的Annotation支持 -->
+    <context:annotation-config/> 
+    <!-- 设定Spring 去哪些包中找Annotation -->
+	<context:component-scan base-package="debug.java.agriculture.intel"/>
+    <!--ViewResolver 视图解析器-->
+    <!--用于支持Servlet、JSP视图解析-->
+    <bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+        <property name="prefix" value="/WEB-INF/jsp/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+	
+
+</beans>
