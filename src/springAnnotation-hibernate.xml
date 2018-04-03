@@ -10,11 +10,6 @@
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
 
-    <!-- 打开Spring的Annotation支持 -->
-    <context:annotation-config/> 
-    <!-- 设定Spring 去哪些包中找Annotation -->
-    <context:component-scan base-package="main.java.agriculture.intel"/>
-
     <!-- 数据源设置 -->
     <bean id="dataSource"
           class="org.springframework.jdbc.datasource.DriverManagerDataSource">
