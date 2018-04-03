@@ -8,6 +8,6 @@
 </head>
 <body>
 	<h2>Hello World</h2>
-	<a href="addAdministrator">æ³¨å†Œ</a>
+	<a href="addAdministrator">×¢²á</a>
 </body>
 </html>
