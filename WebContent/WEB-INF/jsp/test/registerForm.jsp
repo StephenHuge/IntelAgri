@@ -7,8 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-	A test page.<br/>
-	<a href="register">×¢²á</a><br/>
-	<a href="models/register">RESTfulÌí¼Ó</a>
+	<form method="post">
+		ÕËºÅ£º<input type="text" name="name"/><br/>
+		ÃÜÂë£º<input type="password" name="password"/><br/>
+		ÄêÁä£º<input type="text" name="age"/>
+		<input type="submit" value="×¢²á"/>
+	</form>
 </body>
 </html>
