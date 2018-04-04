@@ -1,4 +1,4 @@
-package test.java.argiculture.intel.dao;
+package debug.java.argiculture.intel.dao;
 
 import java.util.Date;
 import java.util.List;
