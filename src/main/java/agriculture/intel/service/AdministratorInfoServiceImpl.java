@@ -4,9 +4,12 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.springframework.stereotype.Service;
+
 import main.java.agriculture.intel.dao.AdministratorInfoDao;
 import main.java.agriculture.intel.model.AdministratorInfo;
 
+@Service
 public class AdministratorInfoServiceImpl implements AdministratorInfoService {
 
 	private AdministratorInfoDao administratorInfoDao;

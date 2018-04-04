@@ -5,9 +5,12 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.springframework.stereotype.Service;
+
 import main.java.agriculture.intel.dao.AgricultureRadiationDataDao;
 import main.java.agriculture.intel.model.AgricultureRadiationData;
 
+@Service
 public class AgricultureRadiationDataServiceImpl implements AgricultureRadiationDataService {
 
 	private AgricultureRadiationDataDao agricultureRadiationDataDao;

@@ -5,9 +5,12 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.springframework.stereotype.Service;
+
 import main.java.agriculture.intel.dao.AgricultureTemperatureDataDao;
 import main.java.agriculture.intel.model.AgricultureTemperatureData;
 
+@Service
 public class AgricultureTemperatureDataServiceImpl implements AgricultureTemperatureDataService {
 
 	private AgricultureTemperatureDataDao agricultureTemperatureDataDao;
