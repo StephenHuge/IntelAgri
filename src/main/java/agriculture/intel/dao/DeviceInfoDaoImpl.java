@@ -21,7 +21,6 @@ import main.java.agriculture.intel.model.DeviceInfo;
 public class DeviceInfoDaoImpl implements DeviceInfoDao {
 	private SessionFactory sessionFactory;
 	  
-	  
 	public SessionFactory getSessionFactory() {
 		return sessionFactory;
 	}
