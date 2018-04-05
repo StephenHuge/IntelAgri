@@ -12,7 +12,7 @@
     <h1>SpringMVC Model系统-Model管理</h1>
     <hr/>
 
-    <h3>所有Model <a href="models/registerForm" type="button" class="btn btn-primary btn-sm">添加</a></h3>
+    <h3>所有Model <a href="models/register" type="button" class="btn btn-primary btn-sm">添加</a></h3>
 
     <!-- 如果model列表为空 -->
     <c:if test="${empty testModels}">
