@@ -11,8 +11,8 @@
     <!-- 加载spring相关的配置文件 -->
     <context-param>
         <param-name>contextConfigLocation</param-name>
-       <!--  <param-value>classpath*:springAnnotation-*.xml</param-value>-->
-        <param-value>classpath*:springAnnotationTest.xml</param-value> 
+       <param-value>classpath*:springAnnotation-*.xml</param-value>
+     <!--     <param-value>classpath*:springAnnotationTest.xml</param-value> -->
     </context-param>
 
     <!-- 启用spring监听 -->
@@ -24,8 +24,8 @@
 	    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 	    <init-param>
 	      <param-name>contextConfigLocation</param-name>
-	     <!--  <param-value>classpath*:springAnnotation-servlet.xml</param-value> -->
-	      <param-value>classpath*:springAnnotationTest.xml</param-value>
+	      <param-value>classpath*:springAnnotation-servlet.xml</param-value>
+	     <!--  <param-value>classpath*:springAnnotationTest.xml</param-value> -->
 	    </init-param>
 	    <load-on-startup>1</load-on-startup>
 	</servlet>
