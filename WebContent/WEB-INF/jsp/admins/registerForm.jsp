@@ -7,8 +7,14 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h2>Hello World</h2>
-	<a href="admins">管理员列表</a><br/>
-	<a href="admins/addAdmin">注册</a>
+	<form method="post">
+		姓名：<input type="text" name="name"/><br/>
+		密码：<input type="password" name="password"/><br/>
+		组织：<input type="text" name="organization"/><br/>
+		手机：<input type="text" name="cellPhone"/><br/>
+		
+		权限：<input type="text" name="privilege"/><br/>
+		<input type="submit" value="注册"/>
+	</form>
 </body>
 </html>
