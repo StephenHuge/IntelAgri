@@ -55,7 +55,7 @@ public class TestRestController {
 	}
 	/**
 	 * 访问/../models/{name}，例如/../models/{张三} 则会查询后找到张三，跳转到物理视图
-	 * WEB-INF/jsp/test/modelDetail.jsp
+	 * WEB-INF/jsp/test/profile.jsp
 	 */
 	@RequestMapping(value="/{name}", method=RequestMethod.GET)
 	public String getModelByName(@PathVariable("name") String name, Model model) {
@@ -65,13 +65,34 @@ public class TestRestController {
 	}
 	/**
 	 * 和name类似，访问/../models/{age}，例如/../models/{23} 则会查询后找到23，跳转到物理视图
-	 * WEB-INF/jsp/test/modelDetail.jsp
+	 * WEB-INF/jsp/test/profile.jsp
 	 */
 	@RequestMapping(value="/{age}", method=RequestMethod.GET)
 	public String getModelByAge(@PathVariable("age") int age, Model model) {
 		TestModel testModel = testDao.getModelByAge(age);
 		model.addAttribute("testModel", testModel);
 		return "test/profile";
+	}
+	
+	
+	@RequestMapping(value="/update/{name}", method=RequestMethod.GET)
+	public String updateModel(@PathVariable("name") String name, Model model) {
+		TestModel testModel = testDao.getModelByName(name);
+		model.addAttribute("testModel", testModel);
+		return "test/updateAdmin";
+	}
+	@RequestMapping(value="/update/{name}", method=RequestMethod.POST)
+	public String updateModel(TestModel testModel) {
+		testDao.updateModel(testModel);
+		return "redirect:/models";
+	}
+	
+	@RequestMapping(value="/delete/{name}", method=RequestMethod.GET)
+	public String delModelByName(@PathVariable("name") String name) {
+		System.out.println("del it ");
+		testDao.delModelByName(name);
+		System.out.println("del it ");
+		return "redirect:/models";
 	}
 	
 }

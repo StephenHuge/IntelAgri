@@ -58,10 +58,14 @@ public class TestDao {
 	public void delModelByName(String name) {
 		TestModel testModel = getModelByName(name); 
 		if (testModel.equals(null)) {
+			System.out.println("object null, del false.");
 			return;
 		}
 		this.sessionFactory.getCurrentSession().delete(testModel);
 		this.sessionFactory.getCurrentSession().flush();
 	}
-	
+	public void updateModel(TestModel testModel) {
+		this.sessionFactory.getCurrentSession().update(testModel);
+		this.sessionFactory.getCurrentSession().flush();
+	}
 }

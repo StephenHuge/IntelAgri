@@ -10,7 +10,7 @@ import javax.persistence.Table;
 @Table(name="test")
 public class TestModel {
 	
-	private int id;
+	private Integer id;
 	private String name;
 	private String password;
 	private int age;
@@ -28,11 +28,11 @@ public class TestModel {
 
 	@Id 
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

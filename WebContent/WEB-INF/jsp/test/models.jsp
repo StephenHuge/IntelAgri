@@ -19,7 +19,7 @@
         <div class="alert alert-warning" role="alert">
             <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
             	Model表为空，请
-            <a href="models/registerForm" type="button" class="btn btn-primary btn-sm">添加</a>
+            <a href="models/register" type="button" class="btn btn-primary btn-sm">添加</a>
         </div>
     </c:if>
 
@@ -39,8 +39,8 @@
                     <td>${testModel.age}</td>
                     <td>
                         <a href="models/${testModel.name}" type="button" class="btn btn-sm btn-success">详情</a>
-                        <a href="/admin/blogs/update/${blog.id}" type="button" class="btn btn-sm btn-warning">修改</a>
-                        <a href="/admin/blogs/delete/${blog.id}" type="button" onclick="return confirm('确定删除吗？')" class="btn btn-sm btn-danger">删除</a>
+                        <a href="models/update/${testModel.name}" type="button" class="btn btn-sm btn-warning">修改</a>
+                        <a href="models/delete/${testModel.name}" type="button" onclick="return confirm('确定删除吗？')" class="btn btn-sm btn-danger">删除</a>
                     </td>
                 </tr>
             </c:forEach>
