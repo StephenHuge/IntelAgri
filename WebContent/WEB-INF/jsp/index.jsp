@@ -8,7 +8,12 @@
 </head>
 <body>
 	<h2>Hello World</h2>
+	<a href="">首页</a><br/>
 	<a href="admins">管理员列表</a><br/>
-	<a href="admins/addAdmin">注册</a>
+	<a href="agriradiation/data/latest">实时数据显示</a><br/>
+	<a href="deviceInfos">设备状态监控和传感器网络管理</a><br/>
+	<a href="agriradiation/data/allData">历史数据回溯和统计</a><br/>
+	<a href="admins/addAdmin">设置</a><br/>
+	<a href="admins/addAdmin">帮助</a><br/>
 </body>
 </html>
