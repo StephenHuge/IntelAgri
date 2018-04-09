@@ -59,22 +59,20 @@ public class AgricultureTemperatureData {
 		this.serverTime = serverTime;
 	}
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
 	public String getImei() {
 		return imei;
 	}
-
+	public void setImei(String imei) {
+		this.imei = imei;
+	}
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	public int getTempDataId() {
 		return tempDataId;
 	}
-
 	public void setTempDataId(int tempDataId) {
 		this.tempDataId = tempDataId;
-	}
-
-	public void setImei(String imei) {
-		this.imei = imei;
 	}
 
 	public Date getTacq() {
