@@ -47,21 +47,15 @@ public class DeviceInfoDaoImpl implements DeviceInfoDao {
 		DeviceInfo deviceInfo = this.load(deviceId);
 		this.sessionFactory.getCurrentSession().delete(deviceInfo);
 		this.sessionFactory.getCurrentSession().flush();
-		
 	}
-
 	@Override
 	public DeviceInfo load(int deviceId) {
 		return (DeviceInfo) this.sessionFactory.getCurrentSession().load(DeviceInfo.class, deviceId);
 	}
-
 	@Override
 	public boolean containDeviceId(int deviceId) {
-		return (boolean) sessionFactory.getCurrentSession()
-				.createQuery("select di from DeviceInfo di where userId=?")
-				.setParameter(0, deviceId).uniqueResult().equals(null);
+		return (boolean) !(load(deviceId).equals(null));
 	}
-
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<DeviceInfo> getAllDeviceInfo() {

@@ -78,9 +78,7 @@ public class AdministratorInfoDaoImpl implements AdministratorInfoDao {
 
 	@Override
 	public boolean containAdministratorInfo(int jobId) {
-		return (boolean) sessionFactory.getCurrentSession()
-				.createQuery("select name from AdministratorInfo where jobId=?")
-				.setParameter(0, jobId).uniqueResult().equals(null);
+		return (boolean) !(load(jobId).equals(null));
 	}
 
 	@SuppressWarnings("unchecked")

@@ -32,7 +32,6 @@ public class AdminController {
 	@RequestMapping(method=RequestMethod.GET)
 	public String showAllAdmins(ModelMap modelMap) {
 		List<AdministratorInfo> admins = administratorInfoDao.getAllAdministratorInfo();
-		System.out.println(admins.size());
 		modelMap.addAttribute("admins", admins);
 		return "admins/allAdmins";
 	}
