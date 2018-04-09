@@ -31,6 +31,8 @@
                 <th>密码</th>
                 <th>组织</th>
                 <th>手机</th>
+                <th>注册日期</th>
+                <th>有效日期</th>
                 <th>权限</th>
             </tr>
 
@@ -40,6 +42,8 @@
                     <td>${admin.password}</td>
                     <td>${admin.organization}</td>
                     <td>${admin.cellPhone}</td>
+                    <td>${admin.recordDate}</td>
+                    <td>${admin.expiryDate}</td>
                     <td>${admin.privilege}</td>
                     <td>
                         <a href="admins/${admin.name}" type="button" class="btn btn-sm btn-success">详情</a>

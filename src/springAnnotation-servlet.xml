@@ -14,7 +14,14 @@
         http://www.springframework.org/schema/mvc  http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
 
 	<!-- 打开Spring的Annotation支持 -->
-    <context:annotation-config/> 
+    <!-- <context:annotation-config/>  -->
+    <mvc:annotation-driven>
+	    <mvc:message-converters>
+	        <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+	            <constructor-arg value="GBK"/>
+	        </bean>
+	   	</mvc:message-converters>
+	</mvc:annotation-driven>
     <!-- 设定Spring 去哪些包中找Annotation -->
     <context:component-scan base-package="main.java.agriculture.intel"/>
 

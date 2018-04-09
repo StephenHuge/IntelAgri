@@ -30,6 +30,14 @@
             <td>${admin.cellPhone}</td>
         </tr>
         <tr>
+            <th>recordDate</th>
+			<td>${admin.recordDate}</td>
+        </tr>
+        <tr>
+            <th>expiryDate</th>
+            <td>${admin.expiryDate}</td>
+        </tr>
+        <tr>
             <th>privilege</th>
             <td>${admin.privilege}</td>
         </tr>
