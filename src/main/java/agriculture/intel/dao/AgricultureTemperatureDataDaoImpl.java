@@ -26,7 +26,7 @@ public class AgricultureTemperatureDataDaoImpl implements AgricultureTemperature
 	@Override
 	public AgricultureTemperatureData getLastestData() {
 		return (AgricultureTemperatureData) this.sessionFactory.getCurrentSession()
-				.createQuery("select max(atd.tacq) from AgricultureTemperatureData atd")
+				.createQuery("select atd from AgricultureTemperatureData atd order by atd.tacq")
 				.uniqueResult();
 	}
 

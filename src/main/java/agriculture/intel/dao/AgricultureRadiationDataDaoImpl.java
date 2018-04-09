@@ -34,7 +34,7 @@ public class AgricultureRadiationDataDaoImpl implements AgricultureRadiationData
 	@Override
 	public AgricultureRadiationData getLastestData() {
 		return (AgricultureRadiationData) this.sessionFactory.getCurrentSession()
-				.createQuery("select max(ard.tacq) from AgricultureRadiationData ard")
+				.createQuery("select ard from AgricultureRadiationData ard order by ard.tacq")
 				.uniqueResult();
 	}
 
