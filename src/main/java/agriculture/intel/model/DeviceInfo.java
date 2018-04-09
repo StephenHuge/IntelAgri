@@ -7,6 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import org.springframework.format.annotation.DateTimeFormat;
 /**
  * 设备信息
  *
@@ -77,6 +79,7 @@ public class DeviceInfo {
 	public void setAddress(String address) {
 		this.address = address;
 	}
+	@DateTimeFormat(pattern = "yyyy-mm-dd")
 	public Date getDate() {
 		return date;
 	}
