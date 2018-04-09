@@ -35,9 +35,9 @@ public class AdminController {
 		modelMap.addAttribute("admins", admins);
 		return "admins/allAdmins";
 	}
-	@RequestMapping("/{name}")
-	public String showAdmin(@PathVariable String name, Model model) {
-		AdministratorInfo admin = administratorInfoDao.load(administratorInfoDao.getIdByName(name));
+	@RequestMapping("/{jobId}")
+	public String showAdmin(@PathVariable int jobId, Model model) {
+		AdministratorInfo admin = administratorInfoDao.load(jobId);
 		model.addAttribute("admin", admin);
 		return "admins/profile";
 	}
@@ -50,21 +50,21 @@ public class AdminController {
 		administratorInfoDao.addAdministratorInfo(administratorInfo);
 		return "redirect:/admins";
 	}
-	@RequestMapping("/updateAdmin/{name}")
-	public String updateAdmin(@PathVariable String name, Model model) {
-		AdministratorInfo admin = administratorInfoDao.load(administratorInfoDao.getIdByName(name));
+	@RequestMapping("/updateAdmin/{jobId}")
+	public String updateAdmin(@PathVariable int jobId, Model model) {
+		AdministratorInfo admin = administratorInfoDao.load(jobId);
 		model.addAttribute("admin", admin);
 		return "admins/updatePage";
 	}
-	@RequestMapping(value="/updateAdmin/{name}", method=RequestMethod.POST)
+	@RequestMapping(value="/updateAdmin/{jobId}", method=RequestMethod.POST)
 	public String updateAdmin(AdministratorInfo administratorInfo) {
 		administratorInfoDao.updateAdministratorInfo(administratorInfo);
 		return "redirect:/admins";
 	}
-	@RequestMapping("/delAdmin/{name}")
-	public String delAdmin(@PathVariable String name) {
+	@RequestMapping("/delAdmin/{jobId}")
+	public String delAdmin(@PathVariable int jobId) {
 		
-		administratorInfoDao.delAdministratorInfo(administratorInfoDao.getIdByName(name));
+		administratorInfoDao.delAdministratorInfo(jobId);
 		return "redirect:/admins";
 	}
 	@InitBinder  

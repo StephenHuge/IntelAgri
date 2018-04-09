@@ -6,6 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=GBK">
 <title>所有model</title>
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 </head>
 <body>
 	<div class="container">
@@ -25,8 +26,9 @@
 
     <!-- 如果admin列表非空 -->
     <c:if test="${!empty admins}">
-        <table class="table table-bordered table-striped">
+        <table class="table table-bordered table-striped table-hover">
             <tr>
+                <th>编号</th>
                 <th>姓名</th>
                 <th>密码</th>
                 <th>组织</th>
@@ -34,10 +36,12 @@
                 <th>注册日期</th>
                 <th>有效日期</th>
                 <th>权限</th>
+                <th>操作</th>
             </tr>
 
             <c:forEach items="${admins}" var="admin">
                 <tr>
+                    <td>${admin.jobId}</td>
                     <td>${admin.name}</td>
                     <td>${admin.password}</td>
                     <td>${admin.organization}</td>
@@ -46,9 +50,9 @@
                     <td>${admin.expiryDate}</td>
                     <td>${admin.privilege}</td>
                     <td>
-                        <a href="admins/${admin.name}" type="button" class="btn btn-sm btn-success">详情</a>
-                        <a href="admins/updateAdmin/${admin.name}" type="button" class="btn btn-sm btn-warning">修改</a>
-                        <a href="admins/delAdmin/${admin.name}" type="button" onclick="return confirm('确定删除吗？')" class="btn btn-sm btn-danger">删除</a>
+                        <a href="admins/${admin.jobId}" type="button" class="btn btn-sm btn-success">详情</a>
+                        <a href="admins/updateAdmin/${admin.jobId}" type="button" class="btn btn-sm btn-warning">修改</a>
+                        <a href="admins/delAdmin/${admin.jobId}" type="button" onclick="return confirm('确定删除吗？')" class="btn btn-sm btn-danger">删除</a>
                     </td>
                 </tr>
             </c:forEach>
