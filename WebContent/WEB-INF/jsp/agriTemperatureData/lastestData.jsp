@@ -18,10 +18,12 @@
 			<div class="span9" id="content">
 				<div class="block">
 					<div class="navbar navbar-inner block-header">
-						<div class="muted pull-left">这是右边的标题</div>
+						<div class="muted pull-left">实时温度信息</div>
+					</div>
+					<div style="margin:20px">
+						<a href="<%=request.getContextPath() %>/agritemperature/data/latest" type="button" class="btn btn-success btn-sm">更新数据</a>
 					</div>
 					<div class="">
-						<br/><br/>
 						<ul class="nav nav-tabs" style="margin:15px">
 						    <li ><a href="<%=request.getContextPath() %>/agriradiation/data/latest">最新辐射数据</a></li>
 						 	<li class="active"><a href="##">最新温度数据</a></li>

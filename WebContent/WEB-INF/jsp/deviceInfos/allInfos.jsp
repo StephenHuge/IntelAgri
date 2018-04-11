@@ -19,7 +19,7 @@
 			<div class="span9" id="content">
 				<div class="block">
 					<div class="navbar navbar-inner block-header">
-						<div class="muted pull-left">这是右边的标题</div>
+						<div class="muted pull-left">所有设备信息</div>
 					</div>
 					<div class="block-content collapse in">
 						<!-- span1~span9调节比例 -->

@@ -17,14 +17,14 @@
 			<div class="span9" id="content">
 				<div class="block">
 					<div class="navbar navbar-inner block-header">
-						<div class="muted pull-left">这是右边的标题</div>
+						<div class="muted pull-left">用户详情</div>
 					</div>
 					<div class="block-content collapse in">
 						<!-- span1~span9调节比例 -->
-						<div class="span9">
+						<div class="span12">
 						<!-- 你的代码写到下面 -->
-							<a href="<%=request.getContextPath() %>/admins">所有</a>
-						    <h1> model详情</h1>
+							<a href="<%=request.getContextPath() %>/admins">返回</a>
+						    <h1> <strong>${admin.name}</strong> 的详细信息</h1>
 						    <hr/>
 						
 						    <table class="table table-bordered table-striped">
