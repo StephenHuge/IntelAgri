@@ -50,17 +50,15 @@ public class TestDao {
 				.list();
 	}
 	public TestModel load(int id) {
-		return (TestModel) this.sessionFactory.getCurrentSession().load(TestModel.class, id);
+		return (TestModel) this.sessionFactory.getCurrentSession().
+				createQuery("SELECT model FROM TestModel model WHERE model.id=?")
+				.setParameter(0, id).uniqueResult();
 	}
 	public boolean containsModel(int id) {
 		return load(id).equals(null);
 	}
-	public void delModelByName(String name) {
-		TestModel testModel = getModelByName(name); 
-		if (testModel.equals(null)) {
-			System.out.println("object null, del false.");
-			return;
-		}
+	public void delModelById(int id) {
+		TestModel testModel = load(id); 
 		this.sessionFactory.getCurrentSession().delete(testModel);
 		this.sessionFactory.getCurrentSession().flush();
 	}

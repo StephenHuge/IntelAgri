@@ -7,10 +7,27 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form method="post">
-		еЫКХЃК<input type="text" name="name"/><br/>
-		УмТыЃК<input type="password" name="password"/>
-		<input type="submit" value="зЂВс"/>
-	</form>
+
+	<%@ include file="/WEB-INF/jsp/test/navi.jsp"%>
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span9" id="content">
+				<div class="block">
+					<div class="navbar navbar-inner block-header">
+						<div class="muted pull-left">зЂВс</div>
+					</div>
+					<div class="block-content collapse in">
+						<div class="span3">
+							<form method="post">
+								еЫКХЃК<input type="text" name="name"/><br/>
+								УмТыЃК<input type="password" name="password"/>
+								<button class="btn btn-success" type="submit">зЂВс</button>
+							</form>				
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
