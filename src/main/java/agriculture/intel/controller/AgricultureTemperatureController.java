@@ -47,5 +47,8 @@ public class AgricultureTemperatureController {
 		modelMap.addAttribute("agriTemperatureDatas", agriTemperatureDatas);
 		return "agriTemperatureData/allData";
 	}
-	
+	@RequestMapping(value="data/charts")
+	public String getCharts() {
+		return "agriTemperatureData/charts";
+	}
 }

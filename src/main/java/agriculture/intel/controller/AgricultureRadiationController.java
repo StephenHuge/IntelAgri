@@ -47,5 +47,8 @@ public class AgricultureRadiationController {
 		modelMap.addAttribute("agriRadiationDatas", agriRadiationDatas);
 		return "agriRadiationData/allData";
 	}
-	
+	@RequestMapping(value="data/charts")
+	public String getCharts() {
+		return "agriRadiationData/charts";
+	}
 }
