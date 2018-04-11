@@ -30,7 +30,7 @@ public class UserController {
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String welcomePage(Model model) {
-	    return "index";
+	    return "redirect:/admins";
 	}
 	@RequestMapping(value="/addAdministrator", method=RequestMethod.GET)
 	public String addAdministrator(Model model) {

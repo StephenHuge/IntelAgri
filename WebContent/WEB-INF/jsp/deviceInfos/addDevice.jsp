@@ -7,16 +7,37 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=GBK">
-<title>Insert title here</title>
+<title>这是标题</title>
 </head>
 <body>
-	<form:form method="post">
-		设备名称：<input type="text" name="deviceName"/><br/>
-		IMEI：<input type="text" name="imei"/><br/>
-		设备类型：<input type="text" name="unitType"/><br/>
-		地址：<input type="text" name="address"/><br/>
-		添加时间：<input type='date' name="date"/>  <br/>
-		<input type="submit" value="添加"/><br/>
-	</form:form>
+
+	<!-- 引入导航栏 -->
+	<%@ include file="/WEB-INF/jsp/common/navi.jsp"%>
+
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span9" id="content">
+				<div class="block">
+					<div class="navbar navbar-inner block-header">
+						<div class="muted pull-left">这是右边的标题</div>
+					</div>
+					<div class="block-content collapse in">
+						<!-- span1~span9调节比例 -->
+						<div class="span9">
+						<!-- 你的代码写到下面 -->
+							<form:form method="post">
+								设备名称：<input type="text" name="deviceName"/><br/>
+								IMEI：<input type="text" name="imei"/><br/>
+								设备类型：<input type="text" name="unitType"/><br/>
+								地址：<input type="text" name="address"/><br/>
+								添加时间：<input type='date' name="date"/>  <br/>
+								<button class="btn btn-success" type="submit">添加</button>
+							</form:form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
