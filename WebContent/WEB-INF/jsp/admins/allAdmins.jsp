@@ -20,7 +20,7 @@
 					</div>
 					<div class="block-content collapse in">
 						<!-- span1~span9调节比例 -->
-						<div class="span11">
+						<div class="span15">
 						<!-- 你的代码写到下面 -->
 							<h1>管理员信息界面</h1>
 						    <hr/>
@@ -77,15 +77,20 @@
 		</div>
 	</div>
 	
-<script src="<%=request.getContextPath()%>/Resource/vendors/jquery-1.9.1.min.js"></script>
-<script src="<%=request.getContextPath()%>/Resource/bootstrap/js/bootstrap.min.js"></script>
-<script src="<%=request.getContextPath()%>/Resource/vendors/easypiechart/jquery.easy-pie-chart.js"></script>
-<!-- 	<script type="text/javascript">
-    $(function(){
-        $("li").click(function(){
-            $(this).addClass("active").siblings().removeClass("active");
-        })
-    })
-</script> -->
+	<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+	<!-- <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script> -->
+	<script src="<%=request.getContextPath()%>/Resources/vendors/jquery-3.3.1.min.js"></script>
+	
+	<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+	<!-- <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> -->
+	<script src="<%=request.getContextPath()%>/Resources/bootstrap/js/bootstrap.js"></script>
+	<script src="<%=request.getContextPath()%>/Resource/vendors/easypiechart/jquery.easy-pie-chart.js"></script>
+	<!-- 	<script type="text/javascript">
+	    $(function(){
+	        $("li").click(function(){
+	            $(this).addClass("active").siblings().removeClass("active");
+	        })
+	    })
+	</script> -->
 </body>
 </html>

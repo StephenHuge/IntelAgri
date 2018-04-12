@@ -65,7 +65,7 @@
 							</div>
 							<div class="form-group" style="margin-left:100px;margin-top:10px">
 								<div class="col-sm-offset-2 col-sm-10">
-									<a href="<%=request.getContextPath() %>/deviceInfos" type="button" class="btn btn-primary btn-sm">·µ»Ø</a>
+									<a href="<%=request.getContextPath() %>/deviceInfos" type="button" class="btn btn-danger btn-sm">·µ»Ø</a>
 									<button class="btn btn-success" type="submit">Ìí¼Ó</button>
 								</div>
 						    </div>
