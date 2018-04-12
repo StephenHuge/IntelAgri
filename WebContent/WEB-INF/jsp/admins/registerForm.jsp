@@ -48,7 +48,7 @@
 							      <option>一般用户（可读取后台数据）</option> 
 							      <option>游客（只可读取企业信息）</option> 
 							    </select><br/>
-							    <a href="<%=request.getContextPath() %>/admins" type="button" class="btn btn-primary btn-sm">返回</a>
+							    <a href="<%=request.getContextPath() %>/admins" type="button" class="btn btn-danger btn-sm">返回</a>
 								<button class="btn btn-success" type="submit">注册</button>
 							</form>
 						</div>

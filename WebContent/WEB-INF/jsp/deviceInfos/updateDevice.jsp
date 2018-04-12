@@ -37,7 +37,7 @@
 							    </select><br/>
 								地址：<input type="text" name="address" value=${deviceInfo.address} /><br/>
 								添加时间：<input type="date" name="date" value=${deviceInfo.date} /><br/>
-								<a href="<%=request.getContextPath() %>/deviceInfos" type="button" class="btn btn-primary btn-sm">返回</a>
+								<a href="<%=request.getContextPath() %>/deviceInfos" type="button" class="btn btn-danger btn-sm">返回</a>
 								<button class="btn btn-success" type="submit">修改</button>
 							</form:form>
 						</div>
