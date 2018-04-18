@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 
@@ -25,9 +26,11 @@ public class AgricultureTemperatureDataDaoImpl implements AgricultureTemperature
 
 	@Override
 	public AgricultureTemperatureData getLastestData() {
-		return (AgricultureTemperatureData) this.sessionFactory.getCurrentSession()
-				.createQuery("select atd from AgricultureTemperatureData atd order by atd.tacq")
-				.uniqueResult();
+		Query query = this.sessionFactory.getCurrentSession()
+				.createQuery("select atd from AgricultureTemperatureData atd order by atd.tempDataId desc");
+		query.setFirstResult(0);
+		query.setMaxResults(1);
+		return (AgricultureTemperatureData) query.uniqueResult();
 	}
 
 	@Override

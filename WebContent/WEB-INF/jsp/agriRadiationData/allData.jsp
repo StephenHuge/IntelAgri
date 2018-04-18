@@ -31,9 +31,8 @@
 					</div>
 					<!-- 下拉切换栏，切换数据类型 -->
 					<div class="btn-group" style="padding:15px">
-					    <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" type="button">数据类型<span class="caret"></span></button>
+					    <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" type="button">所有辐射信息<span class="caret"></span></button>
 					  <ul class="dropdown-menu">
-					  	<li><a href="##">所有辐射信息</a></li>
 					  	<li><a href="<%=request.getContextPath()%>/agritemperature">所有温度信息</a></li>
 					  </ul>
 					</div>

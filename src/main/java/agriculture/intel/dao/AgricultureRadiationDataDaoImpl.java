@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 
@@ -30,12 +31,14 @@ public class AgricultureRadiationDataDaoImpl implements AgricultureRadiationData
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}
-
+	// hql 不支持limit 操作
 	@Override
 	public AgricultureRadiationData getLastestData() {
-		return (AgricultureRadiationData) this.sessionFactory.getCurrentSession()
-				.createQuery("select ard from AgricultureRadiationData ard order by ard.tacq")
-				.uniqueResult();
+		Query query = this.sessionFactory.getCurrentSession()
+				.createQuery("select ard from AgricultureRadiationData ard order by ard.radiationDataId desc");
+		query.setFirstResult(0);
+		query.setMaxResults(1);
+		return (AgricultureRadiationData) query.uniqueResult();
 	}
 
 	@Override
