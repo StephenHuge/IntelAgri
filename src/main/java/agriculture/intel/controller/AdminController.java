@@ -28,7 +28,6 @@ public class AdminController {
 		this.administratorInfoDao = administratorInfoDao;
 	}
 
-	
 	@RequestMapping(method=RequestMethod.GET)
 	public String showAllAdmins(ModelMap modelMap) {
 		List<AdministratorInfo> admins = administratorInfoDao.getAllAdministratorInfo();
