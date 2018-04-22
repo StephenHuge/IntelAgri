@@ -7,7 +7,6 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import main.java.agriculture.intel.dao.DeviceInfoDao;
-import main.java.agriculture.intel.dao.DeviceInfoDaoImpl;
 import main.java.agriculture.intel.model.DeviceInfo;
 
 @Service
