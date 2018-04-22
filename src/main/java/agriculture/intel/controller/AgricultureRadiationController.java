@@ -10,18 +10,18 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import main.java.agriculture.intel.dao.AgricultureRadiationDataDao;
+import main.java.agriculture.intel.service.AgricultureRadiationDataService;
 import main.java.agriculture.intel.model.AgricultureRadiationData;
 
 @Controller
 @RequestMapping("/agriradiation")
 public class AgricultureRadiationController {
-	private AgricultureRadiationDataDao agricultureRadiationDataDao;
+	private AgricultureRadiationDataService agricultureRadiationDataService;
 
 	@Autowired
-	public AgricultureRadiationController(AgricultureRadiationDataDao agricultureRadiationDataDao) {
+	public AgricultureRadiationController(AgricultureRadiationDataService agricultureRadiationDataService) {
 		super();
-		this.agricultureRadiationDataDao = agricultureRadiationDataDao;
+		this.agricultureRadiationDataService = agricultureRadiationDataService;
 	}
 	
 	@RequestMapping(method=RequestMethod.GET)
@@ -31,19 +31,19 @@ public class AgricultureRadiationController {
 	
 	@RequestMapping(value="/data/latest", method=RequestMethod.GET)
 	public String getLatestData(Model model) {
-		AgricultureRadiationData agriRadiationData = agricultureRadiationDataDao.getLastestData();
+		AgricultureRadiationData agriRadiationData = agricultureRadiationDataService.getLastestData();
 		model.addAttribute("agriRadiationData", agriRadiationData);
 		return "agriRadiationData/lastestData";
 	}
 	@RequestMapping(value="/data/{imei}", method=RequestMethod.GET)
 	public String getDataByImei(@PathVariable String imei, ModelMap modelMap) {
-		List<AgricultureRadiationData> agriRadiationDatas = agricultureRadiationDataDao.getDataByImei(imei);
+		List<AgricultureRadiationData> agriRadiationDatas = agricultureRadiationDataService.getDataByImei(imei);
 		modelMap.addAttribute("agriRadiationDatas", agriRadiationDatas);
 		return "agriRadiationData/datasByImei";
 	}
 	@RequestMapping(value="/data/allData", method=RequestMethod.GET)
 	public String getAllData(ModelMap modelMap) {
-		List<AgricultureRadiationData> agriRadiationDatas = agricultureRadiationDataDao.getAllData();
+		List<AgricultureRadiationData> agriRadiationDatas = agricultureRadiationDataService.getAllData();
 		modelMap.addAttribute("agriRadiationDatas", agriRadiationDatas);
 		return "agriRadiationData/allData";
 	}
