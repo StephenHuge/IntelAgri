@@ -62,9 +62,9 @@
 						                    <td>${admin.expiryDate}</td>
 						                    <td>${admin.privilege}</td>
 						                    <td>
-						                        <a href="admins/${admin.jobId}" type="button" class="btn btn-sm btn-success">详情</a>
-						                        <a href="admins/updateAdmin/${admin.jobId}" type="button" class="btn btn-sm btn-warning">修改</a>
-						                        <a href="admins/delAdmin/${admin.jobId}" type="button" onclick="return confirm('确定删除吗？')" class="btn btn-sm btn-danger">删除</a>
+						                        <a href="<%=request.getContextPath()%>/admins/${admin.jobId}" type="button" class="btn btn-sm btn-success">详情</a>
+						                        <a href="<%=request.getContextPath()%>/admins/updateAdmin/${admin.jobId}" type="button" class="btn btn-sm btn-warning">修改</a>
+						                        <a href="<%=request.getContextPath()%>/admins/delAdmin/${admin.jobId}" type="button" onclick="return confirm('确定删除吗？')" class="btn btn-sm btn-danger">删除</a>
 						                    </td>
 						                </tr>
 						            </c:forEach>

@@ -57,9 +57,10 @@ public class AdministratorInfoDaoImpl implements AdministratorInfoDao {
 	@Override
 	public int getIdByName(String name) {
 		return (int) sessionFactory.getCurrentSession()
-//				.createQuery("select job_id from intelagri.administrator_inf where name=?")
 				.createQuery("select ai.jobId from AdministratorInfo ai where ai.name=?")
-				.setParameter(0, name).uniqueResult();
+				.setParameter(0, name)
+				
+				.uniqueResult();
 	}
 
 	@Override
