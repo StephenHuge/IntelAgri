@@ -38,12 +38,11 @@
 						<!-- span1~span9调节比例 -->
 						<div class="span12">
 						<!-- 你的代码写到下面 -->
-						<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+							<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
 							<div id="main" style="width: 800px; height: 500px;margin: 0; float:left"></div>
 							<div style="float: left; margin: 200px 0 auto;">
-									<button class="btn btn-success btn-sm"
-										onclick="loadDATA(option)">更新数据</button>
-								</div>
+								<button class="btn btn-success btn-sm" onclick="loadDATA(option)">更新数据</button>
+							</div>
 						</div>
 					</div>
 				</div>
