@@ -11,9 +11,6 @@
 <link
 	href="<%=request.getContextPath()%>/Resources/bootstrap/css/bootstrap-responsive.min.css"
 	rel="stylesheet" media="screen">
-<link
-	href="<%=request.getContextPath()%>/Resources/vendors/easypiechart/jquery.easy-pie-chart.css"
-	rel="stylesheet" media="screen">
 <link href="<%=request.getContextPath()%>/Resources/assets/styles.css"
 	rel="stylesheet" media="screen">
 </head>
@@ -44,10 +41,8 @@
 	</div>
 
 	<script
-		src="<%=request.getContextPath()%>/Resource/vendors/jquery-1.9.1.min.js"></script>
+		src="<%=request.getContextPath()%>/Resources/vendors/jquery-3.3.1.min.js"></script>
 	<script
-		src="<%=request.getContextPath()%>/Resource/bootstrap/js/bootstrap.min.js"></script>
-	<script
-		src="<%=request.getContextPath()%>/Resource/vendors/easypiechart/jquery.easy-pie-chart.js"></script>
+		src="<%=request.getContextPath()%>/Resources/bootstrap/js/bootstrap.js"></script>
 </body>
 </html>
